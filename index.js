@@ -4,6 +4,8 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const fs = require('fs');
 const englishDictionary = require("./dummyDictionary/dictionary.json");
+const turkishDictionary = require("./dummyDictionary/turkishDictionary.json");
+
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -17,23 +19,9 @@ app.post("/en", (req, res) => {
 app.post("/tr", (req, res) => {
   var {value} = req.body
   value = value.toLocaleLowerCase("tr");
-  fs.readFile('./dummyDictionary/turkishDictionary.txt', 'utf8', (err, data) => {
-    if (err) {
-      console.error('Dosya okunurken bir hata oluştu:', err);
-      return;
-    }
-    if (data.includes(value)) {
-      res.json(true)
-    } else {
-      res.json(false)
-    }
-  });
+  if(turkishDictionary[value])res.json(true)
+    else res.json(false)
 })
-app.get("/asd", (req, res) => {
-  res.json("asd")
-})
-
-
 app.listen(3001, "localhost", () => {
     console.log("Server running on port 3001");
   });
