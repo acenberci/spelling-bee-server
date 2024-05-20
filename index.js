@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const fs = require('fs');
-const englishDictionary = require("../dummyDictionary/dictionary.json");
+const englishDictionary = require("./dummyDictionary/dictionary.json");
 app.use(cors());
 app.use(bodyParser.json());
 app.post("/api/en", (req, res) => {
