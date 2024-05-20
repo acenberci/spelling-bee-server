@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const fs = require('fs');
 const englishDictionary = require("./dummyDictionary/dictionary.json");
 const corsOptions = {
-  origin: ['http://localhost:3002', 'http://localhost:3000'],
+  origin: ['https://spelling-bee-client.vercel.app', 'http://localhost:3000'],
   credentials: true,
 };
 app.use(cors(corsOptions));
