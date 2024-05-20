@@ -28,6 +28,9 @@ app.post("/tr", (req, res) => {
     }
   });
 })
+app.get("/asd", (req, res) => {
+  res.json("asd")
+})
 
 
 app.listen(3001, "localhost", () => {
